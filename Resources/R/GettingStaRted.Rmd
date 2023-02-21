@@ -1,0 +1,180 @@
+---
+title: "Getting StaRted"
+author: 'ECO 6416'
+date: "Last Updated: `r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Typically, I will show all the packages needed to compile this document here. For this document, I am going to layer them within the document 
+
+# What is R?
+
+R is a programming language designed for statistical analysis and data visualization. R can also be used as a general-purpose programming language, complete with a menu of data types, tools for conditional logic, repetition, functions and methods.
+
+
+
+
+# Uses of R
+
+There are many things you can do with R, but for our class, we should only focus on how data is viewed, how to use functions, utilize packages, and ways find help.
+
+## Basic Operations
+
+R can be used as a basic calculator.
+
+```{r basic}
+5 + 8
+```
+
+We can also store our operations into variables. We can reference those variables later.
+
+
+```{r variables}
+unlucky <- 5 + 8
+
+unlucky
+
+lucky <- unlucky - 6
+lucky
+
+```
+
+## Using Functions and Packages
+
+Using a function is simple. These are some built-in functions
+
+```{r functions}
+abs(-3)
+sqrt(lucky)
+```
+
+## Installing and Using Packages
+
+Sometimes, you need to use functions outside of the built-in ones. For an example, let’s install the package swirl:
+
+`install.packages("swirl")`
+
+This command pulls and stores the package into your library. If you want to actually use it, you must pull it from your library:
+
+```{r swirl}
+library(swirl)
+```
+
+`swirl` is an important package for beginners because it will show you how to do the basics step by step.
+
+## Help
+
+Also if you need help with any commands, you can put a question mark before a command to understand how to use it.
+
+`?merge`
+
+You can also search by keywords: `??matrix`, `??"identity matrix"`
+
+## Handling Data
+
+For this example we are going to use one of the embedded datasets within R.
+
+```{r mtcars}
+mtcars
+```
+
+Looking at this output, you can see this dataframe has 32 rows, and 11 columns. You could also use the `dim(mtcars)` function
+We can do some basic operations on this dataframe.
+
+### Column Selection
+
+If you are interested in looking at the horsepower data for each one of these vehicles, you can simply do it two different ways:
+
+```{r columns}
+mtcars$hp
+
+mtcars[,4]
+```
+
+### Selecting Rows
+
+You can simply select which row you wish by doing so:
+
+```{r rows}
+mtcars[1,]
+
+mtcars["Mazda RX4",]
+```
+
+### Selecting Row and Column
+
+You can bring both together.
+
+```{r slicing}
+mtcars$hp[1]
+mtcars[1,4]
+```
+
+You can also select more than one column/row by creating a vector of values:
+
+```{r}
+mtcars[1,c(1,2,4,5)]
+
+mtcars[1,1:5] # This grabs the first 5 columns
+```
+
+
+## Creating New Column
+
+You will often times need to transform one column into another. Suppose we want the logarithm of horsepower
+
+```{r}
+log(mtcars$hp)
+```
+
+If we want to add this column to the overall dataset, we will need to assign it.
+
+```{r}
+mtcars$logHP <- log(mtcars$hp)
+```
+
+# Getting Your Bearings
+
+A crucial part to using any software is that you are in the proper location. I typically think of folders within a computer as houses and the files are in each house. If you are in the wrong house, you cannot get the items in the other house.
+
+```{r}
+getwd()
+```
+
+If you need to change locations, you can easily do that as well using `setwd()`.
+
+An important thing to note is `\` vs `/`. Many languages use `\` to ignore the next action. This is called an escape character.
+
+
+# Importing Data
+
+Depending upon the filetype, you may need special packages in order to import the data. For this example, since it is an excel file, we will need to import a new package `install.packages("readxl")` .
+
+You will need to change the path to the file, but here is my path as an example:
+
+```{r}
+library(readxl)
+
+Wealth1Percent <- read_excel("C:/Users/jo585802/OneDrive - University of Central Florida/Courses/ECP3203/CourseNotes/Coding Example/Introduction_to_R/Wealth1percent.xlsx")
+```
+
+# Base Plots
+
+We can easily plot this information in the base R package. There are many other ways to do this, but for now, we can use the default.
+
+```{r}
+plot(Wealth1Percent$quarter,Wealth1Percent$Share)
+plot(Wealth1Percent$quarter,Wealth1Percent$Share,
+     type = "l",
+     xlab = "",
+     ylab = "Share [%]",
+     main = "Share of Wealth Held by the 1%")
+```
+
