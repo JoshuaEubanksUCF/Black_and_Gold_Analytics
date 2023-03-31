@@ -10,7 +10,7 @@ GitHub Desktop is a Graphical User Interface (GUI)
 for interacting with GitHub, 
 the code repository.
 Follow this link to download
-[https://desktop.github.com/](GitHub Desktop).  
+[GitHub Desktop](https://desktop.github.com/).  
 
 ### Opening a GitHub Account
 
