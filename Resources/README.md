@@ -71,6 +71,21 @@ Once RStudio is installed,  you can set the color-coding of your screen in RStud
 Now, your IDE should be color-coded just like the ones used
 by professional computer programmers in real life and in the movies. 
 
+## Python
+
+Python is a popular, general-purpose programming language
+that is used for machine learning, data mining, statistical analysis, as well as for obtaining, cleaning, and organizing data. 
+
+### Installing Python
+
+We recommend a distribution of Python called Anaconda, 
+which comes complete with an IDE called Spyder. 
+When installing Anaconda, verify that Spyder is downloaded/installed with Anaconda but in case it is not, the link is also available below.
+
+Anaconda: https://www.anaconda.com/distribution/
+
+Spyder: https://www.spyder-ide.org/
+
 
 # Tutorials
 
