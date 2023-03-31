@@ -1,5 +1,0 @@
-Python:
-https://mode.com/python-tutorial/
-
-SQL:
-https://mode.com/sql-tutorial/

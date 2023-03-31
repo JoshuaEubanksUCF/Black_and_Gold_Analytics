@@ -71,3 +71,15 @@ Once RStudio is installed,  you can set the color-coding of your screen in RStud
 Now, your IDE should be color-coded just like the ones used
 by professional computer programmers in real life and in the movies. 
 
+
+# Tutorials
+
+Once the software is installed, you can get started 
+with the following tutorials.
+
+## Python:
+https://mode.com/python-tutorial/
+
+## SQL:
+https://mode.com/sql-tutorial/
+
