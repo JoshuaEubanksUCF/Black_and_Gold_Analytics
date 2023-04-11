@@ -18,5 +18,10 @@ Only after R is installed,
 install RStudio, which will recognize your instance of R
 and the installation process will configure the files. 
 
+Also, install GitHub Desktop, following the instructions 
+in the same folder.
+
+With these tools, you will be able to pull code 
+and run it on your computer. 
 
 
