@@ -70,7 +70,7 @@ basket_data <- read.csv('BGA_basketball_data.csv')
 summary(basket_data)
 
 # Variables include:
-# Made to indicate whether a player sucessfully made a basket,
+# Made to indicate whether a player successfully made a basket,
 #   0 if they missed
 # Name is the name of the player taking the shot
 # Height is the height of the player in inches
@@ -99,6 +99,12 @@ summary(basket_data[basket_data[, 'Made'] == 1, ])
 # Differences in the two distributions should indicate
 # the potential for prediction. 
 
+# Restate in terms of Sink or Miss.
+basket_data[, 'Result'] <- factor(NA, levels = c('Sink', 'Miss'))
+sel_rows <- basket_data[, 'Made'] == 1
+basket_data[sel_rows, 'Result'] <- 'Sink'
+sel_rows <- basket_data[, 'Made'] == 0
+basket_data[sel_rows, 'Result'] <- 'Miss'
 
 
 ##################################################
@@ -107,13 +113,35 @@ summary(basket_data[basket_data[, 'Made'] == 1, ])
 
 # Tabulate by distance.
 table(basket_data[, 'Distance'], 
-      basket_data[, 'Made'], useNA = 'ifany')
+      basket_data[, 'Result'], useNA = 'ifany')
+
+
+# Aggregate the data to calculte averages by player.
+agg_basket_data <- aggregate(x = Made ~ Name + Distance, 
+                             data = basket_data, 
+                             FUN = mean)
+
+
+# Plot a boxplot to illustrate range of outcomes.
+boxplot(Made ~ Distance, data = agg_basket_data,
+        main = "Baskets sunk by Distance from Net",
+        xlab = "Distance",
+        ylab = "Perentage of Baskets")
+
 
 
 
 # Tabulate by major.
 table(basket_data[, 'Major'], 
-      basket_data[, 'Made'], useNA = 'ifany')
+      basket_data[, 'Result'], useNA = 'ifany')
+
+
+# Plot a spinogram (requires library vcd).
+library(vcd)
+counts <- table(basket_data[, 'Major'], 
+                basket_data[, 'Result'], useNA = 'ifany')
+spine(counts, main = "Spinogram of Baskets sunk by Major")
+# The width illustrates the number of players of each major.
 
 
 
