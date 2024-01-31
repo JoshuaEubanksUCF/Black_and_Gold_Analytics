@@ -4,12 +4,13 @@
 #
 # QMB 3311: Python for Business Analytics
 #
-# Joshua L. Eubanks
+# Lealand Morin, Ph.D.
+# Assistant Professor
 # Department of Economics
 # College of Business 
 # University of Central Florida
 #
-# January 2, 2023
+# January 7, 2021
 # 
 ##################################################
 #
